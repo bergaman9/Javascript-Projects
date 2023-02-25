@@ -1,4 +1,0 @@
-{
-    "mongoURI":
-      "mongodb+srv://bergaman:bergaman77@cluster0.i8kyq.mongodb.net/books-db?retryWrites=true&w=majority"
-  }
