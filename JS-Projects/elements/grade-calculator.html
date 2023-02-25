@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Grade Calculator</h1>
+    <section class="grade-section">
+        <form class="grade-list">
+            <label>Math: </label>
+            <input type="number" min="0" max="100"><br>
+            <label>Physics: </label>
+            <input type="number" min="0" max="100"><br>
+            <label>Chemistry: </label>
+            <input type="number" min="0" max="100"><br>
+            <label>C Programming: </label>
+            <input type="number" min="0" max="100"><br>
+            <label>Computer: </label>
+            <input type="number" min="0" max="100"><br>
+        </form>
+        <p class="calculation-result"></p>
+        <button onclick="calculateGrade()">Calculate Result</button>
+    </section>
+
+    <section class="add-section">
+        <h2>Add New Lesson</h2>
+        <input type="text" name="" class="new-lesson">
+        <button onclick="addNewLesson()">Add</button>
+    </section>
+
+    <script>
+        function calculateGrade() {
+            event.preventDefault();
+            let allValues = document.querySelectorAll("form input");
+            let gradeSum = 0;
+
+            allValues.forEach((inputItem) => {
+                gradeSum += parseInt(inputItem.value);
+            });
+
+            document.querySelector(".calculation-result").innerHTML = "Your average grade is: " + Math.floor(gradeSum /
+                allValues
+                .length);
+        }
+
+        function addNewLesson() {
+            event.preventDefault();
+
+            let newLessonValue = document.querySelector(".new-lesson").value;
+
+            let newLabelElement = document.createElement("label");
+            newLabelElement.innerHTML = newLessonValue + ": ";
+            document.querySelector(".grade-list").appendChild(newLabelElement)
+
+            let newInputElement = document.createElement("input");
+            newInputElement.setAttribute("type", "number");
+            document.querySelector(".grade-list").appendChild(newInputElement);
+
+            document.querySelector("new-lesson").innerHTML = ""
+        }
+    </script>
+</body>
+
+</html>

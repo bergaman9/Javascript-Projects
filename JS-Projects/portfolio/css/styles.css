@@ -1,0 +1,197 @@
+/* @font-face {
+    font-family: "My Font";
+    src: url(../fonts/NeonGlowHollow-KqGp.ttf);
+} */
+
+/* Global Styles
+----------------------------------------- */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: white;
+    margin: 0;
+    padding: 0;;
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 100px;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+h1, h2 {
+    font-family: 'Caveat', cursive;
+    font-weight: 400;
+    margin: 0;
+}
+
+img {
+    width: 300px;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: #ffd319;
+}
+
+a:active {
+    color: #ff2975;
+}
+
+.content-wrap {
+    max-width: 900px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+h3 {
+    margin-bottom: 0;
+}
+
+.item-details h3 + p {
+    font-style: italic;
+}
+
+.item-details h3 ~ p {
+    margin: 0;
+}
+
+.divider > section{
+    border-bottom: 1px dashed #727272;
+    padding: 25px 0;
+}
+.divider > section:last-child{
+    border-bottom: none;
+}
+
+/* Header
+----------------------------------------- */
+header {
+    background: #1C3879;
+}
+
+/* Projects
+----------------------------------------- */
+.projects {
+    background: #EAE3D2;
+    color: black;
+    padding: 10px;
+}
+
+.projects a {
+    color: #1C3879;
+}
+
+.projects .btn {
+    color: #EAE3D2;
+    background: #1C3879;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.projects .btn:hover {
+    background: rgba(28, 56, 121, 80%);
+    text-decoration: none;
+}
+
+.projects-item {
+    overflow: hidden;
+}
+
+
+.projects-item h3 {
+    margin-top: 0;
+}
+
+
+/* Work Experience
+----------------------------------------- */
+.work-experince {
+    background: #1C3879;
+    padding: 10px;
+}
+
+/* Education
+----------------------------------------- */
+.education {
+    background: #EAE3D2;
+    color: black;
+    padding: 10px;
+}
+
+/* Footer
+----------------------------------------- */
+footer {
+    background: #1C3879;
+    padding: 10px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list a {
+    padding: 15px;
+    display: inline-block;
+}
+
+.contact-list a:hover {
+    text-decoration: none;
+    color: #EAE3D2;
+}
+
+/* Responsive Styles
+----------------------------------------- */
+@media screen and (min-width: 750px) {
+    header, footer {
+        text-align: center;
+    }
+
+    .projects-item img {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .job-item {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 20px;
+    }
+
+    .contact-list {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    h1 {
+        font-size: 75px;
+    }
+    h2 {
+        line-height: 0.9;
+    }
+
+    .contact-list a {
+        padding: 5px;
+    }
+}

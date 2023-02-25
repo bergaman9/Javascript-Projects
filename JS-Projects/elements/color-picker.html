@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Guess the Color</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Guess the Color</h1>
+
+    <script>
+        var colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "brown", "black", "white"];
+        var color = colors[Math.floor(Math.random() * colors.length)];
+        var colorElement = document.createElement("p");
+        colorElement.innerHTML = color;
+        document.body.appendChild(colorElement);
+
+        var input = document.createElement("input");
+        document.body.appendChild(input);
+
+        var button = document.createElement("button");
+        button.innerHTML = "Guess";
+        document.body.appendChild(button);
+
+        button.addEventListener("click", function () {
+            if (input.value === color) {
+                alert("You guessed correctly!");
+            } else {
+                alert("You guessed incorrectly!");
+            }
+        });
+    </script>
+</body>
+
+</html>

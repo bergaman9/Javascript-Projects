@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Currency Converter</h1>
+    <form>
+        <label>Dollar</label>
+        <input type="number" id="dollar" placeholder="Enter Dollar">
+        <label>Turkish Lira</label>
+        <input type="number" id="lira" placeholder="Enter Turkish Lira">
+        <button type="submit">Convert</button>
+    </form>
+    <script>
+        let button = document.querySelector('button');
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            let dollar = document.querySelector('#dollar').value;
+            let lira = document.querySelector('#lira').value;
+            if (dollar) {
+                lira = dollar * 18.64;
+                document.querySelector('#lira').value = lira;
+            } else if (lira) {
+                dollar = lira / 18.64;
+                document.querySelector('#dollar').value = dollar;
+            }
+        });
+    </script>
+</body>
+
+</html>

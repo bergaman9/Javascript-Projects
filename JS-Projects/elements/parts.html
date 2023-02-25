@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Parts</h1>
+
+    <!-- Today's Date -->
+    <h2 class="todays-date"></h2>
+
+
+    <!-- Dropdown Menu -->
+    <label for="cars">Choose a car:</label>
+    <select onclick="changeValue()" name="cars" id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+    </select>
+
+
+    <!-- JS HTML DOM -->
+    <h3>HTML DOM</h3>
+    <b>Finding HTML Elements</b>
+    <ul>
+        <li>document.getElementById(id)</li>
+        <li>document.getElementsByTagName(name)</li>
+        <li>document.getElementsByClassName(name)</li>
+    </ul>
+    <b>Changing HTML Elements</b>
+    <ul>
+        <p>Property</p>
+        <li>element.innerHTML = new html content</li>
+        <li>element.attribute = new value</li>
+        <li>element.style.property = new style</li>
+        <p>Method</p>
+        <li>element.setAttribute(attribute, value) </li>
+    </ul>
+    <section class="adding-element">
+        <b>Adding and Deleting Elements</b>
+        <ul>
+            <li>element.innerHTML = new html content</li>
+            <li>element.attribute = new value</li>
+            <li>element.style.property = new style</li>
+            <li>element.setAttribute(attribute, value) </li>
+        </ul>
+    </section>
+
+
+    <!-- JS Web APIs -->
+    <h3>Web APIs</h3>
+    <button onclick="goBack()" class="api-btn">Go Back</button>
+    <p>I will research about other APIs.</p>
+
+
+    <!-- JS Browser BOM -->
+    <h3>BOM</h3>
+    <button class="bom-btn">Click</button>
+
+
+    <!-- Signup Form -->
+    <h3>Signup Form</h3>
+    <label>Username: </label>
+    <input type="username" class="username"><br>
+    <label>Email: </label>
+    <input type="email" name="" id=""><br>
+    <label>Password: </label>
+    <input type="password" name="" class="password"><br>
+    <button class="signup-btn">Signup</button>
+
+
+    <!-- Login Form -->
+    <h3>Login Form</h3>
+    <form>
+        <label>Username: </label>
+        <input type="username" class="username"><br>
+        <label>Password: </label>
+        <input type="password" name="" class="password"><br>
+        <button class="login-btn">Login</button>
+    </form>
+
+
+    <!-- File Uploading -->
+    <h3>File Uploading</h3>
+    <form>
+        <label for="file"><b>Upload File: </b></label>
+        <input type="file" name="" id="" class="file-upload">
+        <input onclick="getValue()" type="button" value="Submit">
+    </form>
+
+    <!-- Element Research -->
+    <h2>Element Research</h2>
+    <input type="button" value="sa"><br>
+    <input type="checkbox" name="sa" id=""><br>
+    <input type="color" name="" id=""><br>
+    <input type="date" name="" id=""><br>
+    <input type="datetime" name="" id=""><br>
+    <input type="datetime-local" name="" id=""><br>
+    <input type="week" name="" id=""><br>
+    <input type="url" name="" id=""><br>
+    <input type="time" name="" id=""><br>
+    <input type="tel" name="" id=""><br>
+    <input type="text" name="" id=""><br>
+    <input type="search" name="" id=""><br>
+    <input type="hidden" name=""><br>
+    <input type="radio" name="deneme" value="deneme" id=""><br>
+    <input type="reset" value=""><br>
+
+    <!-- HTML Elements -->
+    <p>You can use <abbr>CSS</abbr> to style your <abbr>HTML</abbr>.</p>
+    <address>
+        <a href="mailto:jim@rock.com">jim@rock.com</a><br>
+        <a href="tel:+13115552368">(311) 555-2368</a>
+    </address>
+    <audio controls src="yalan-almanya.mp3"></audio>
+    <blockquote>"Sonunu düşünen kahraman olamaz!"</blockquote>
+    <table>
+        <caption>He-Man and Skeletor facts</caption>
+        <tr>
+            <td> </td>
+            <th scope="col" class="heman">He-Man</th>
+            <th scope="col" class="skeletor">Skeletor</th>
+        </tr>
+        <tr>
+            <th scope="row">Role</th>
+            <td>Hero</td>
+            <td>Villain</td>
+        </tr>
+        <tr>
+            <th scope="row">Weapon</th>
+            <td>Power Sword</td>
+            <td>Havoc Staff</td>
+        </tr>
+        <tr>
+            <th scope="row">Dark secret</th>
+            <td>Expert florist</td>
+            <td>Cries at romcoms</td>
+        </tr>
+    </table>
+
+    <script>
+        let options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        let date = new Date();
+        console.log(date);
+        document.querySelector(".todays-date").innerHTML = date.toLocaleDateString("en-US", options);
+
+
+        let newElement = document.createElement("p");
+        newElement.innerHTML = "I added this here."
+        document.querySelector(".adding-element").appendChild(newElement)
+
+        function goBack() {
+            window.history.back(); // Web History API / Other Methods: go(-2), forward()
+        }
+
+
+        document.querySelector(".bom-btn").addEventListener("click", function (event) {
+            event.preventDefault();
+            // console.log(window.open("https://www.google.com/")) // JS Window
+            console.log(window.location); // JS Location
+            console.log(window.screen.width, window.screen.height, window.screen.colorDepth, window.screen
+                .pixelDepth, window.screen.availWidth, window.screen.availHeight); //JS Screen
+            // console.log(window.history.back()); // JS History
+            console.log(navigator.cookieEnabled, navigator.appCodeName, navigator.platform); // Js Navigator
+            // window.alert("some text"); // alert("some text") 
+            // window.confirm("some text"); // confirm("some text") // JS Popup Alert
+            // window.prompt("Hello \nHow are you?", "I am fine, thanks!");
+            window.setTimeout(function () {
+                alert("Hello")
+            }, 3000);
+            document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+            console.log(document.cookie) // JS Cookies
+        })
+
+
+        document.querySelector(".login-btn").addEventListener("click", function (event) {
+            event.preventDefault();
+            let usernameValue = document.querySelector(".username").value;
+            let passwordValue = document.querySelector(".password").value;
+            console.log(usernameValue, passwordValue);
+            if (usernameValue.length < 8) {
+                alert("Your username is shorter than 8 characters.");
+            }
+            if (!passwordValue.includes("!", "?")) {
+                alert("Your password doesn't include '!','?'");
+            }
+
+        });
+    </script>
+</body>
+
+</html>

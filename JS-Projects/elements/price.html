@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Price Calculation</h1>
+
+    <label>Item: </label>
+    <input type="text" name="" id="item">
+    <label>Price: </label>
+    <input type="number" name="" id="price">
+    <button onclick="addPrices()">Add</button>
+    <ul>
+        <h3 style="visibility: hidden;">Added Items</h3>
+    </ul>
+
+    <p class="total-price">Total Price: 0</p>
+
+    <script>
+        let price = 0;
+
+        function addPrices() {
+            let newPrice = document.querySelector("#price").value;
+
+            price += parseInt(newPrice);
+            document.querySelector(".total-price").innerHTML = "Total Price: " + price;
+
+
+            let newItemName = document.querySelector("#item").value;
+
+            let itemElement = document.createElement("p");
+            itemElement.innerHTML = "<li>" + newItemName + ": " + newPrice + "</li>";
+            document.querySelector("ul").appendChild(itemElement)
+
+            document.querySelector("h3").style.visibility = "visible";
+
+            document.querySelector("#item").value = "";
+            document.querySelector("#price").value = "";
+        }
+    </script>
+</body>
+
+</html>

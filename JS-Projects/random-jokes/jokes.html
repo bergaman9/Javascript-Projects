@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Random Jokes</h1>
+    <p></p>
+    <button onclick="getData()">New Joke</button>
+
+    <script>
+        APIURL = "https://api.chucknorris.io/jokes/random";
+        getData();
+        async function getData() {
+            const resp = await fetch(APIURL);
+            const respData = await resp.json();
+            document.querySelector("p").innerHTML = respData.value;
+        }
+    </script>
+</body>
+
+</html>

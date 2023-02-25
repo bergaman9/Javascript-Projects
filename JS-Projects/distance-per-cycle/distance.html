@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Ayna Kolun Her Turunda Alınan Mesafe Hesabı</h1>
+
+    <label for="">Jant Boyutu: </label>
+    <input type="number" id="jant"><br>
+
+    <label for="">Ön Dişli: </label>
+    <input type="number" id="ön"><br>
+
+    <label for="">Arka Dişli: </label>
+    <input type="number" id="arka"><br>
+
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            let jant = document.querySelector("#jant").value;
+            let ön = document.querySelector("#ön").value;
+            let arka = document.querySelector("#arka").value;
+
+            let tekerÇevresi = 3.14 * parseInt(jant) * 0.0254;
+            let oran = parseInt(ön) / parseInt(arka);
+            let sonuç = tekerÇevresi * oran;
+
+            document.querySelector("#result").innerHTML = "Sonuç: " + sonuç.toFixed(3) + " metre"
+            console.log(sonuç.toFixed(3) + " m");
+        }
+    </script>
+</body>
+
+</html>

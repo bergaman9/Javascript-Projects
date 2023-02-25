@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <div class="card">
+            <h1>Tip Calculator</h1>
+
+            <div>
+                <input type="number" class="amount" required><br>
+                <br>
+                <label>Tip: </label>
+                <input onchange="tipCalculate()" type="range" name="percentage" min="0" max="100" class="percentage">
+                <label class="percentageLabel" for="percentage"></label>
+            </div>
+
+            <h3>Results</h3>
+            <input type="button" value="Tip Amount" disabled>
+            <input class="tip-amount" type="text" name="" id="" disabled><br>
+            <br>
+            <input type="button" value="Total Bill with Tip" disabled>
+            <input class="total-bill" type="text" name="" id="" disabled>
+        </div>
+    </main>
+    <p class=""></p>
+    <script>
+        function tipCalculate() {
+            let bill = document.querySelector(" .amount").value;
+            let
+                percentage = document.querySelector(".percentage").value;
+            document.querySelector(".percentageLabel").innerHTML = percentage + "%";
+            let tip = parseInt(bill) *
+                (parseInt(percentage) / 100);
+            let totalBill = parseInt(bill) + tip;
+            document.querySelector(".tip-amount").value = tip.toFixed();
+            document.querySelector(".total-bill").value = totalBill.toFixed();
+        }
+    </script>
+</body>
+
+</html>

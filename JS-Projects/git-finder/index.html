@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1 style="color: white;">GitHub User Finder</h1>
+    <form>
+        <input placeholder="Search a Github User" onkeypress="searchUserEnter()" type="text" name="github-username"
+            id="github-username">
+        <input type="submit" onclick="searchUser()">
+    </form>
+
+    <div class="card">
+        <main id="main"></main>
+    </div>
+
+
+    <script>
+        let APIURL = "https://api.github.com/users/";
+        let main = document.querySelector("#main");
+        let gitHubUsername = document.querySelector("#github-username")
+
+        getUser("bergaman9");
+        async function getUser(username) {
+            const resp = await fetch(APIURL + username);
+            console.log(resp)
+            const respData = await resp.json();
+            console.log(respData);
+
+            createUserCard(respData);
+            getRepos(username);
+        }
+
+        async function getRepos(username) {
+            const resp = await fetch(APIURL + username + "/repos");
+            const respData = await resp.json();
+            addReposToCard(respData);
+        }
+
+        function createUserCard(user) {
+            const cardHTML = `
+            <div class="card">
+            <div>
+                <br>
+                <img class="avatar" src="${user.avatar_url}" alt="${user.name}" />
+            </div>
+            <div class="user-info">
+                <h2>${user.name}</h2>
+                <p>${user.bio}</p>
+                <ul class="info">
+                    <li>${user.followers}<strong> Followers</strong></li>
+                    <li>${user.following}<strong> Following</strong></li>
+                    <li>${user.public_repos}<strong> Public Repositorys</strong></li>
+                </ul>
+                <div id="repos"></div>
+            </div>
+            </div>
+            `;
+
+            main.innerHTML = cardHTML;
+        }
+
+        function addReposToCard(repos) {
+            const reposEl = document.getElementById("repos");
+
+            repos
+                .sort((a, b) => b.stargazers_count - a.stargazers_count)
+                .slice(0, 10)
+                .forEach((repo) => {
+                    const repoEl = document.createElement("a");
+                    repoEl.classList.add("repo");
+
+                    repoEl.href = repo.html_url;
+                    repoEl.target = "_blank";
+                    repoEl.innerText = repo.name;
+
+                    reposEl.appendChild(repoEl);
+                });
+        }
+
+        function searchUser() {
+            event.preventDefault();
+
+            const user = gitHubUsername.value;
+
+            if (user) {
+                getUser(user);
+
+                gitHubUsername.value = "";
+            }
+        }
+
+        function searchUserEnter() {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+
+                const user = gitHubUsername.value;
+
+                if (user) {
+                    getUser(user);
+
+                    gitHubUsername.value = "";
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

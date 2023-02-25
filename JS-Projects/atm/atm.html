@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>ATM</h1>
+    <p id="total-money"></p>
+    <input type="number" id="value" placeholder="Enter the number" required><br>
+    <button onclick="withdraw()">Withdraw</button>
+    <button onClick="deposit()">Deposit</button>
+
+    <script>
+        let totalMoney = 5000;
+        document.querySelector("#total-money").innerHTML = "Total Money: " + totalMoney;
+
+        function deposit() {
+            let value = document.querySelector("#value").value;
+            if (value > 0) {
+                totalMoney += parseInt(value);
+                totalMoneyUpdate();
+                document.querySelector("#value").value = "";
+            } else {
+                alert("Enter a value please!")
+            }
+        }
+
+        function withdraw() {
+            let value = document.querySelector("#value").value;
+            if (value > 0) {
+                totalMoney -= parseInt(value);
+                totalMoneyUpdate();
+                document.querySelector("#value").value = "";
+            } else {
+                alert("Enter a value please!")
+            }
+        }
+
+        function totalMoneyUpdate() {
+            document.querySelector("#total-money").innerHTML = "Total Money: " + totalMoney;
+        }
+    </script>
+</body>
+
+</html>

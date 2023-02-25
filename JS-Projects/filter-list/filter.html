@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>İlleri Filtrele</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Filter List</h1>
+    <form>
+        <input placeholder="Enter a value" onkeypress="filterResult()" type="search" name="" id="search-input">
+    </form>
+    <div class="card">
+        <ul id="list">
+            <li>Yalova</li>
+            <li>İstanbul</li>
+            <li>Ankara</li>
+            <li>Bursa</li>
+            <li>İzmir</li>
+        </ul>
+    </div>
+
+    <script>
+        let results = document.querySelectorAll("li");
+
+        function filterResult() {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                let searchInput = document.querySelector("#search-input").value;
+                let filterText = "";
+
+                results.forEach(result => {
+                    let eachResult = result.innerHTML;
+                    console.log(eachResult);
+                    if (eachResult.includes(searchInput)) {
+                        console.log(eachResult);
+                        filterText += "<li>" + eachResult + "</li>\n"
+                    }
+                });
+
+                document.querySelector("#list").innerHTML = filterText;
+                document.querySelector("#search-input").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
